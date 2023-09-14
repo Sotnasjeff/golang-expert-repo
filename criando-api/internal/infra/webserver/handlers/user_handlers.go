@@ -37,7 +37,7 @@ func NewUserHandler(userDB database.UserInterface, jwtExpiresIn int) *UserHandle
 // @Success      200  {object}  dto.GetJWTOutput
 // @Failure      404  {object}  Error
 // @Failure      500  {object}  Error
-// @Router       /users/generate_token [post]
+// @Router       /user/generate_token [post]
 func (h *UserHandler) GetJWT(w http.ResponseWriter, r *http.Request) {
 	jwt := r.Context().Value("jwt").(*jwtauth.JWTAuth)
 	var user dto.GetJWTInput
@@ -75,7 +75,7 @@ func (h *UserHandler) GetJWT(w http.ResponseWriter, r *http.Request) {
 // @Param        request     body      dto.CreateUserInput  true  "user request"
 // @Success      201
 // @Failure      500         {object}  Error
-// @Router       /users [post]
+// @Router       /user [post]
 func (h *UserHandler) Create(w http.ResponseWriter, r *http.Request) {
 	var user dto.CreateUserInput
 	err := json.NewDecoder(r.Body).Decode(&user)
