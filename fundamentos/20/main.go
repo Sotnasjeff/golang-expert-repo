@@ -19,6 +19,8 @@ func main() {
 		println("b")
 	case 3:
 		println("c")
+	case 4:
+		println("f")
 	default:
 		println("D")
 	}
