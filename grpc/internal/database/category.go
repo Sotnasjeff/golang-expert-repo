@@ -8,9 +8,10 @@ import (
 )
 
 var (
-	INSERT            = "INSERT INTO categories (id, name, description) VALUES ($1, $2, $3)"
-	SELECT_ALL        = "SELECT id, name, description FROM categories"
-	FIND_COURSE_BY_ID = "SELECT c.id, c.name, c.description FROM categories c JOIN courses co ON c.id = co.category_id WHERE co.id = $1"
+	INSERT              = "INSERT INTO categories (id, name, description) VALUES ($1, $2, $3)"
+	SELECT_ALL          = "SELECT id, name, description FROM categories"
+	FIND_COURSE_BY_ID   = "SELECT c.id, c.name, c.description FROM categories c JOIN courses co ON c.id = co.category_id WHERE co.id = $1"
+	FIND_CATEGORY_BY_ID = "SELECT id, name, description FROM categories WHERE id = $1"
 )
 
 type Category struct {
@@ -56,6 +57,15 @@ func (c *Category) FindAll() ([]Category, error) {
 func (c *Category) FindByCourseID(courseId string) (Category, error) {
 	var id, name, description string
 	err := c.db.QueryRow(FIND_COURSE_BY_ID, courseId).Scan(&id, &name, &description)
+	if err != nil {
+		return Category{}, err
+	}
+	return Category{ID: id, Name: name, Description: description}, nil
+}
+
+func (c *Category) FindCategoryById(categoryId string) (Category, error) {
+	var id, name, description string
+	err := c.db.QueryRow(FIND_CATEGORY_BY_ID, categoryId).Scan(&id, &name, &description)
 	if err != nil {
 		return Category{}, err
 	}

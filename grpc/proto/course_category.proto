@@ -21,12 +21,19 @@ message CategoryList {
     repeated Category categories = 1;
 }
 
+message CategoryGetRequest {
+    string id = 1;
+}
+
 message blank {
 
 }
 
 service CategoryService {
     rpc CreateCategory(CreateCategoryRequest) returns (CategoryResponse) {}
+    rpc CreateCategoryStream(stream CreateCategoryRequest) returns (CategoryList) {}
+    rpc CreateCategoryBidirectionalStream(stream CreateCategoryRequest) returns (stream Category) {}
     rpc ListCategories(blank) returns (CategoryList) {}
+    rpc GetCategory(CategoryGetRequest) returns (Category) {}
 
 }

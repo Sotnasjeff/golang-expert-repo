@@ -6,6 +6,7 @@ require github.com/google/uuid v1.3.0
 
 require (
 	github.com/99designs/gqlgen v0.17.38
+	github.com/aws/aws-sdk-go v1.45.23
 	github.com/go-chi/chi v1.5.1
 	github.com/go-chi/jwtauth v1.2.0
 	github.com/go-sql-driver/mysql v1.7.1
@@ -41,6 +42,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/lestrrat-go/backoff/v2 v2.0.7 // indirect
 	github.com/lestrrat-go/httpcc v1.0.0 // indirect
