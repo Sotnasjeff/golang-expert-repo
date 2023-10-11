@@ -7,4 +7,7 @@ migrate:
 migratedown:
 	migrate -path=sql/migrations -database "mysql://root:root@tcp(localhost:3306)/courses" -verbose down
 
-.PHONY: migrate migratedown createmigration
+sqlc:
+	sqlc generate
+
+.PHONY: migrate migratedown createmigration sqlc
