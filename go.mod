@@ -11,6 +11,7 @@ require (
 	github.com/go-chi/jwtauth v1.2.0
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/golang/protobuf v1.5.3
+	github.com/google/wire v0.5.0
 	github.com/mattn/go-sqlite3 v1.14.17
 	github.com/rabbitmq/amqp091-go v1.8.1
 	github.com/spf13/cobra v1.7.0
